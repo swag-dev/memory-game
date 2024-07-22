@@ -1,0 +1,181 @@
+@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+* {
+  margin: 10px;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  user-select: none;
+  font-family: "Atkinson Hyperlegible";
+}
+
+button {
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+body.inactive {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #152938;
+}
+body.inactive header {
+  margin-top: 80px;
+}
+body.inactive header h1 {
+  color: #fcfcfc;
+}
+body.inactive main {
+  width: 654px;
+  height: 560px;
+  background-color: #fcfcfc;
+  padding: 0 56px;
+  margin-top: 60px;
+  border-radius: 20px;
+}
+body.inactive main .wrapper {
+  margin-top: 40px;
+}
+body.inactive main .wrapper:first-of-type {
+  margin-top: 50px;
+}
+body.inactive main .wrapper .container_title {
+  font-size: 20px;
+  color: #7191A5;
+  font-weight: 700;
+  margin: 15px 0;
+}
+body.inactive main .wrapper .btn_container {
+  display: flex;
+  justify-content: space-between;
+}
+body.inactive main .wrapper .btn_container button {
+  width: 256px;
+  height: 52px;
+  font-size: 26px;
+  border-radius: 30px;
+  color: #fcfcfc;
+  background-color: #304859;
+  font-weight: 700;
+}
+body.inactive main .wrapper .btn_container button:hover {
+  background-color: #bcced9;
+}
+body.inactive main .wrapper .btn_container button.active {
+  background-color: #6395b8;
+}
+body.inactive main .wrapper #player_count_container button {
+  width: 120px;
+}
+body.inactive main #start_btn {
+  width: 100%;
+  height: 70px;
+  background-color: #fda214;
+  border-radius: 30px;
+  color: #fcfcfc;
+  font-size: 32px;
+  font-weight: 700;
+  margin-top: 30px;
+}
+body.inactive main #start_btn:hover {
+  background-color: #ffb84a;
+}
+
+body.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body.active header {
+  display: flex;
+  justify-content: space-between;
+  width: 1110px;
+  height: 52px;
+  margin-top: 40px;
+}
+body.active header h1 {
+  font-size: 40px;
+  color: #152938;
+}
+body.active header #commands_container > * {
+  height: 52px;
+  width: 127px;
+  border-radius: 30px;
+  font-size: 20px;
+  font-weight: 700;
+}
+body.active header #commands_container #restart_btn {
+  background-color: #fda214;
+  color: #fcfcfc;
+}
+body.active header #commands_container #restart_btn:hover {
+  background-color: #ffb84a;
+}
+body.active header #commands_container #new_game_btn {
+  background-color: #dfe7ec;
+  color: #304859;
+}
+body.active header #commands_container #new_game_btn:hover {
+  background-color: #6395b8;
+}
+body.active main {
+  margin: 50px;
+}
+body.active main .container_cells {
+  display: flex;
+}
+body.active main .container_cells .cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  font-weight: 700;
+  margin: 6px;
+}
+body.active main .container_cells .cell.four {
+  width: 118px;
+  height: 118px;
+  font-size: 56px;
+}
+body.active main .container_cells .cell.four svg {
+  width: 56px;
+  height: 56px;
+}
+body.active main .container_cells .cell.six {
+  width: 82px;
+  height: 82px;
+  font-size: 44px;
+}
+body.active main .container_cells .cell.six svg {
+  width: 40px;
+  height: 40px;
+}
+body.active main .container_cells .cell.six svg rect {
+  color: white;
+  fill: white;
+}
+body.active main .container_cells .cell.active {
+  background-color: #bcced9;
+  color: #fcfcfc;
+}
+body.active main .container_cells .cell.hidden {
+  background-color: #152938;
+  font-size: 0;
+}
+body.active main .container_cells .cell.hidden:hover {
+  background-color: #6395b8;
+}
+body.active main .container_cells .cell.hidden svg rect {
+  width: 0;
+  height: 0;
+}
+body.active main .container_cells .cell.found {
+  background-color: #fda214;
+}
+body.active main .container_cells .cell svg rect {
+  color: white;
+  fill: white;
+}
+
+/*# sourceMappingURL=index.css.map */
