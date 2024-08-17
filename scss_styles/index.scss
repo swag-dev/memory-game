@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-$gold: #fdafff;
+$gold: #fda214;
 $blue: #6395b8;
 $white1: #f2f2f2;
 $white2: #fcfcfc;
@@ -15,7 +15,7 @@ $gray_blue4: #bcced9;
     border: 0;
     box-sizing: border-box;
     user-select: none;
-    font-family: "Atkinson Hyperlegible";
+    font-family: "Atkinson Hyperlegible", serif;
 }
 
 button{
@@ -30,7 +30,7 @@ body.inactive{
     align-items: center;
     background-color: $gray_blue1;
     header{
-        margin-top: 80px;
+        margin-top: 154px;
         h1{
             color: $white2;
         }
@@ -103,7 +103,7 @@ body.active{
         justify-content: space-between;
         width: 1110px;
         height: 52px;
-        margin-top: 40px;
+        margin-top: 70px;
         h1{
             font-size: 40px;
             color: $gray_blue1;
@@ -133,7 +133,7 @@ body.active{
         }
     }
     main{
-        margin: 50px;
+        margin: 85px;
         .container_cells{
             display: flex;
             .cell{

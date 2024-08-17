@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ProjectTasksOptions">
-    <TaskOptions isEnabled="false">
+    <TaskOptions isEnabled="true">
       <option name="arguments" value="$FileName$:$ProjectFileDir$/styles/$FileNameWithoutExtension$.css" />
       <option name="checkSyntaxErrors" value="true" />
       <option name="description" />
@@ -9,7 +9,7 @@
       <option name="fileExtension" value="scss" />
       <option name="immediateSync" value="true" />
       <option name="name" value="SCSS" />
-      <option name="output" value="$ProjectFileDir$/css/$FileNameWithoutExtension$.css:$ProjectFileDir$/styles/$FileNameWithoutExtension$.css.map" />
+      <option name="output" value="$ProjectFileDir$/styles/$FileNameWithoutExtension$.css:$ProjectFileDir$/styles/$FileNameWithoutExtension$.css.map" />
       <option name="outputFilters">
         <array />
       </option>
@@ -21,7 +21,7 @@
       <option name="workingDir" value="$FileDir$" />
       <envs />
     </TaskOptions>
-    <TaskOptions isEnabled="false">
+    <TaskOptions isEnabled="true">
       <option name="arguments" value="$FileName$:$ProjectFileDir$/css/$FileNameWithoutExtension$.css" />
       <option name="checkSyntaxErrors" value="true" />
       <option name="description" />
