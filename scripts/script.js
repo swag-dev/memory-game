@@ -135,41 +135,41 @@ function add_click_event_main(btns){
 }
 function add_click_event_cell(cells){
     cells.forEach(el => el.addEventListener("click",() => {
-        el.classList.toggle("active");
-        if(active_cells.length == 2){
-            active_cells.forEach(el => el.classList.remove("active"));
-            active_cells = [];
+        if(!el.classList.contains("found")){
+            if(el.classList.contains("active")){
+                el.classList.remove("active");
+                if(active_cells[0] === el) active_cells.shift();
+                else active_cells.pop();
+            }
+            else{
+                el.classList.add("active");
+                active_cells.push(el);
+                if(active_cells.length === 2) check_match(active_cells[0], active_cells[1]);
+            }
+            console.log(active_cells);
         }
-        if(!el.classList.contains("active")){
-            el.classList.remove("active");
-            if(active_cells[0] === el) active_cells.shift();
-            else active_cells.pop();
-        }
-        else{
-            active_cells.push(el);
-            if(active_cells.length === 2) check_match(active_cells[0], active_cells[1]);
-        }
-        console.log(active_cells);
     }));
 
 }
 function check_match(el1, el2){
-    if(user_choice_theme === "Numbers") {
-        if(el1.textContent === el2.textContent) {
-            found_cells.push(el1, el2);
-            el1.classList.add("found");
-            el2.classList.add("found");
-        }
-        active_cells = []
+    if(user_choice_theme === "Icons") {
     }
-    else {
-        if(el1.firstChild === el2.firstChild) {
-            found_cells.push(el1, el2);
-            el1.classList.add("found");
-            el2.classList.add("found");
-        }
-        else active_cells = [];
+    if((user_choice_theme === "Numbers" && el1.textContent === el2.textContent) || (user_choice_theme === "Icons" && el1.firstChild.innerHTML === el2.firstChild.innerHTML)) {
+        found_cells.push(el1, el2);
+        el1.classList.add("found");
+        el2.classList.add("found");
+        el1.classList.remove("active");
+        el2.classList.remove("active");
+
+        console.log(found_cells);
     }
+    else{
+        setTimeout(() => {
+            el1.classList.remove("active");
+            el2.classList.remove("active");
+        }, 300)
+    }
+    active_cells = []
 }
 add_click_event_main(theme_btns);
 add_click_event_main(player_count_btns);

@@ -186,6 +186,9 @@ body.active{
                 &.found{
                     background-color: $gold;
                 }
+                &.wrong{
+                    background-color: red;
+                }
                 svg{
                     rect{
                         color: white;
