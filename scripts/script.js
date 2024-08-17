@@ -42,7 +42,7 @@ function change_body(){
     `
     document.querySelector("#restart_btn").addEventListener("click", () => restart_game());
     document.querySelector("#new_game_btn").addEventListener("click", () => begin_new_game());
-    user_choice_grid_size == grid_size_arr[0] ? create_cells(4) : create_cells(6);
+    user_choice_grid_size === grid_size_arr[0] ? create_cells(4) : create_cells(6);
 }
 function create_cells(grid_size){
     for(let i = 1; i <= grid_size; i++){
@@ -53,7 +53,7 @@ function create_cells(grid_size){
         for(let j = 1; j <= grid_size; j++){
             const cell = document.createElement("button");
             cell.classList.add("cell");
-            grid_size == 4 ? cell.classList.add("four") : cell.classList.add("six");
+            grid_size === 4 ? cell.classList.add("four") : cell.classList.add("six");
             // cell.classList.add("hidden");
             div.append(cell);
         }
@@ -63,11 +63,8 @@ function create_cells(grid_size){
 
 function check_cells(arr, num, ind){
     for(let i = 0; i < arr.length; i++){
-        if(arr[i][ind] == num){
+        if(arr[i][ind] === num){
             return false;
-        }
-        else{
-            continue;
         }
     }
     return true
@@ -76,7 +73,7 @@ function check_cells(arr, num, ind){
 function fill_cells(theme, grid_size){
     
     const cells = document.querySelectorAll(".cell");
-    if(theme == themes_arr[0]){
+    if(theme === themes_arr[0]){
         let pairs = [];
         for(let i = 0; i < (grid_size*grid_size/2); i++){
             let rand_pos = Math.floor(Math.random() * Math.pow(grid_size, 2));
@@ -138,20 +135,41 @@ function add_click_event_main(btns){
 }
 function add_click_event_cell(cells){
     cells.forEach(el => el.addEventListener("click",() => {
-        // el.classList.toggle("hidden");
-        // el.classList.toggle("active");
-        active_cells.push(el);
+        el.classList.toggle("active");
+        if(active_cells.length == 2){
+            active_cells.forEach(el => el.classList.remove("active"));
+            active_cells = [];
+        }
+        if(!el.classList.contains("active")){
+            el.classList.remove("active");
+            if(active_cells[0] === el) active_cells.shift();
+            else active_cells.pop();
+        }
+        else{
+            active_cells.push(el);
+            if(active_cells.length === 2) check_match(active_cells[0], active_cells[1]);
+        }
         console.log(active_cells);
     }));
 
 }
 function check_match(el1, el2){
-    if(el1.textContent == el2.textContent) {
-        return true;
-        found_cells.push(el1, el2);
-        active_cells = [];
+    if(user_choice_theme === "Numbers") {
+        if(el1.textContent === el2.textContent) {
+            found_cells.push(el1, el2);
+            el1.classList.add("found");
+            el2.classList.add("found");
+        }
+        active_cells = []
     }
-    else return false;
+    else {
+        if(el1.firstChild === el2.firstChild) {
+            found_cells.push(el1, el2);
+            el1.classList.add("found");
+            el2.classList.add("found");
+        }
+        else active_cells = [];
+    }
 }
 add_click_event_main(theme_btns);
 add_click_event_main(player_count_btns);
